@@ -1,19 +1,28 @@
-puts "hello"
-puts 3 + 4
+class User
+  attr_accessor :name
 
-puts <<~TEXT
+  def initialize(**params)
+    @name = params[:name]
+  end
+end
 
-コンんちは
+def build_users(names)
+  users = []
+  names.each do |name|
+  users << User.new(name: name)
+  end
 
-池田
+  users
+end
 
-よろしく
 
-TEXT
+names = ["saitou","taira", "yamada"]
+  
+users = build_users(names)
 
-users = ["ikeda", "tkesi","sitou","huzihaea"]
+
 
 users.each do |user|
 
-  puts user
+  puts user.name
 end
